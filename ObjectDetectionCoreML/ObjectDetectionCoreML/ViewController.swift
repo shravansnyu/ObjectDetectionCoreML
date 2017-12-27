@@ -32,8 +32,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         captureSession.addOutput(dataOutput)
-        // request handler
-        //let request = VNCoreMLRequest(model: <#T##VNCoreMLModel#>, completionHandler: <#T##VNRequestCompletionHandler?##VNRequestCompletionHandler?##(VNRequest, Error?) -> Void#>)
+        // request handler 
         
         //VNImageRequestHandler(cgImage: captureSession, options: [:]).perform(<#T##requests: [VNRequest]##[VNRequest]#>)
         
@@ -41,6 +40,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         print("Camera is working:",Date())
+        
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else{return}
+        
+        guard let model  = try? VNCoreMLModel(for: SqueezeNet().model) else{return}
+        
+        let request = VNCoreMLRequest(model: model) { (finsihedRequest, error) in
+            print(finsihedRequest.results)
+        }
+        
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
     
     override func didReceiveMemoryWarning() {
