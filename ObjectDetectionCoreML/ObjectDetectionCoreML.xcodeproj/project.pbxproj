@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28E900721FF4B8F900750482 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 28E900711FF4B8B600750482 /* Resnet50.mlmodel */; };
 		F44AE6591FF34B8500F7F755 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F44AE6581FF34B8500F7F755 /* SqueezeNet.mlmodel */; };
 		F4A753761FF2C15F00ADE0D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A753751FF2C15F00ADE0D6 /* AppDelegate.swift */; };
 		F4A753781FF2C15F00ADE0D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A753771FF2C15F00ADE0D6 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28E900711FF4B8B600750482 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		F44AE6581FF34B8500F7F755 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		F4A753721FF2C15F00ADE0D6 /* ObjectDetectionCoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectDetectionCoreML.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A753751FF2C15F00ADE0D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				F44AE6581FF34B8500F7F755 /* SqueezeNet.mlmodel */,
+				28E900711FF4B8B600750482 /* Resnet50.mlmodel */,
 				F4A753751FF2C15F00ADE0D6 /* AppDelegate.swift */,
 				F4A753771FF2C15F00ADE0D6 /* ViewController.swift */,
 				F4A753791FF2C15F00ADE0D6 /* Main.storyboard */,
@@ -99,7 +102,7 @@
 				TargetAttributes = {
 					F4A753711FF2C15F00ADE0D6 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -141,6 +144,7 @@
 			files = (
 				F4A753781FF2C15F00ADE0D6 /* ViewController.swift in Sources */,
 				F44AE6591FF34B8500F7F755 /* SqueezeNet.mlmodel in Sources */,
+				28E900721FF4B8F900750482 /* Resnet50.mlmodel in Sources */,
 				F4A753761FF2C15F00ADE0D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,16 +282,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H9W6U448P;
 				INFOPLIST_FILE = ObjectDetectionCoreML/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GoDimensions.ObjectDetectionCoreML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "533d467b-b505-4e5b-ab48-605669d64c0f";
-				PROVISIONING_PROFILE_SPECIFIER = GoDimensionsDistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,16 +301,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H9W6U448P;
 				INFOPLIST_FILE = ObjectDetectionCoreML/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GoDimensions.ObjectDetectionCoreML;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "533d467b-b505-4e5b-ab48-605669d64c0f";
-				PROVISIONING_PROFILE_SPECIFIER = GoDimensionsDistribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
