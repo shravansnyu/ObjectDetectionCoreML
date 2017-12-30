@@ -18,6 +18,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
+       
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {return}
         guard let input = try? AVCaptureDeviceInput(device: captureDevice) else {return}
         
@@ -38,15 +39,20 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
     }
 
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        print("Camera is working:",Date())
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+       // print("Camera is working:",Date())
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else{return}
         
         guard let model  = try? VNCoreMLModel(for: Resnet50().model) else{return}
         
         let request = VNCoreMLRequest(model: model) { (finsihedRequest, error) in
-            print(finsihedRequest.results)
+          //  print(finsihedRequest.results)
+            guard let results = finsihedRequest.results as? [VNClassificationObservation] else {return}
+            
+            guard let firstObservation = results.first else{return}
+            
+            print(firstObservation.identifier, firstObservation.confidence)
         }
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
